@@ -1,33 +1,29 @@
 <template>
-  <el-container>
-    <div clas="topheadecenter" style="margin:0 auto;max-width: 1190px;min-height: 377px;">
-      <div class="left fl xlz">
-        <!--            <h1 class="logo"></h1>-->
-        <span class="slogan" style="color: #333;">
-          学两招-Edu
-          <span class="plus">+</span>
-        </span>
+  <el-row type="flex" class="row-bg" justify="center">
+    <el-col :span="6">
+      <div class="slogan">
+        学两招-Edu
+        <span class="plus">+</span>
       </div>
-      <!--left-->
-      <div class="right fr userinfo" id="user_info">
-        <div >
-          <img
-            src="https://image.xlzhao.com/o_1cum3fvbuhrk1urunbq1rs21v437.png"
-            alt
-            width="23"
-            height="23"
-          >
-          <span>坚持星球 校长</span>
-        </div>
+    </el-col>
+    <el-col :span="12">
+      <div class="active">
+        <a href>线下活动也可以用海报推广功能上线！</a> &nbsp;&nbsp;
+        <a href class="more">查看更多</a>
       </div>
-      <!--right-->
-      <div class="fl bluetxt" id="bluemsg" style="display: block;">
-        <span class="msgicon fl"></span>
-        <a href="/sms/msg-detail?id=21" id="msgtxt" class="widthxian spanmsg">线下活动也可以用海报推广功能上线！</a>
-        <a href="/sms/msg-list" class="spanmsg seemore">查看更多</a>
+    </el-col>
+    <el-col :span="4">
+      <div class="nickname">
+        <img
+          src="https://image.xlzhao.com/o_1cum3fvbuhrk1urunbq1rs21v437.png"
+          alt
+          width="23px"
+          height="23px"
+        >
+        <span>坚持星球 校长</span>
       </div>
-    </div>
-  </el-container>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -35,35 +31,36 @@ export default {}
 </script>
 
 <style>
-.topheader {
-  background: #fff;
-  padding: 0 30px;
-  height: 80px;
-  overflow: hidden;
-  -moz-box-shadow: 1px 1px 2px #999;
-  -webkit-box-shadow: 1px 1px 2px #999;
-  box-shadow: 1px 1px 2px #999;
-}
-
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
+.slogan,
+.active,
+.nickname {
   line-height: 60px;
 }
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
+.slogan {
+  position: absolute;
 }
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
+.plus {
+  position: relative;
+  top: -8px;
+  right: 0;
+}
+.active {
+  margin-left: -150px;
+}
+.active a:first-child {
+  color: red;
+  font-size: 14px;
+}
+.active a:last-child {
+  color: #576a9a;
+  font-size: 14px;
+}
+a:hover {
+  text-decoration: underline;
+}
+.nickname img {
+  border-radius: 50%;
+  margin-bottom: 5px;
+  vertical-align: middle;
 }
 </style>

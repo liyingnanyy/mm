@@ -25,3 +25,13 @@ ul {
 .fr {
   float: right;
 }
+.el-container {
+  /* max-width: 1190px; */
+  margin: 0 auto;
+}
+.el-main {
+  width: 980px;
+}
+body {
+  background: #eee;
+}

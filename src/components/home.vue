@@ -1,14 +1,16 @@
 <template>
   <el-container>
     <el-header>
-      <Headers />
+      <div class="wrapper">
+        <Headers/>
+      </div>
     </el-header>
-    <el-container>
+    <el-container class="content">
       <el-aside width="200px">
-        <Sidebar />
+        <Sidebar/>
       </el-aside>
       <el-main>
-        <!-- <router-view></router-view> -->
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -26,4 +28,23 @@ export default {
 </script>
 
 <style>
+ .el-header {
+  width: 100%;
+  /* border-bottom: 1px solid #ccc; */
+  background: #fff;
+  padding: 0 30px;
+  height: 80px;
+  overflow: hidden;
+  -moz-box-shadow: 1px 1px 2px #999;
+  -webkit-box-shadow: 1px 1px 2px #999;
+  box-shadow: 1px 1px 2px #999;
+}
+.wrapper {
+  max-width: 1200px;
+  min-width: 1200px;
+  margin: 0 auto;
+}
+.content {
+  margin-top: 15px;
+}
 </style>
