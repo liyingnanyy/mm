@@ -4,7 +4,7 @@
       <template slot="title">
         <i :class="item1.class"></i><span>{{item1.title}}</span>
       </template>
-        <el-menu-item :index="'/'+item2.path" v-for="item2 in item1.children" :key="item2.id">{{item2.title}}</el-menu-item>
+        <el-menu-item :index="'/'+item2.path" @click="saveIndex('/'+item2.path)" v-for="item2 in item1.children" :key="item2.id">{{item2.title}}</el-menu-item>
         <!-- <el-menu-item index="/column">栏目管理</el-menu-item>
         <el-menu-item index="/video">视频管理</el-menu-item>
         <el-menu-item index="/news">文章管理</el-menu-item>
@@ -56,6 +56,8 @@
 export default {
   data () {
     return {
+      sliderActiveIndex: window.sessionStorage.getItem('sliderActiveIndex') || 'activity',
+      // 等下不好用
       sideList: [
         {
           title: '内容系统',
@@ -224,6 +226,13 @@ export default {
           class: 'el-icon-more'
         }
       ]
+    }
+  },
+  methods: {
+    saveIndex(index) {
+      this.sliderActiveIndex = sliderActiveIndex;
+      window.sessionStorage.setItem('sliderActiveIndex', index)
+      console.log(index)
     }
   }
 }
