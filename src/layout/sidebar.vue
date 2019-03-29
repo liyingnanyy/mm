@@ -1,10 +1,10 @@
 <template>
-  <el-menu :router="true" :unique-opened="true" default-active="2" class="el-menu-vertical-demo">
+  <el-menu :router="true" :unique-opened="true" class="el-menu-vertical-demo">
     <el-submenu :index="item1.path" v-for="item1 in sideList" :key="item1.id">
       <template slot="title">
         <i :class="item1.class"></i><span>{{item1.title}}</span>
       </template>
-        <el-menu-item :index="item2.path" v-for="item2 in item1.children" :key="item2.id">{{item2.title}}</el-menu-item>
+        <el-menu-item :index="'/'+item2.path" v-for="item2 in item1.children" :key="item2.id">{{item2.title}}</el-menu-item>
         <!-- <el-menu-item index="/column">栏目管理</el-menu-item>
         <el-menu-item index="/video">视频管理</el-menu-item>
         <el-menu-item index="/news">文章管理</el-menu-item>
@@ -59,127 +59,127 @@ export default {
       sideList: [
         {
           title: '内容系统',
-          path: '/activity',
+          path: '1',
           id: 1,
           class: 'el-icon-tickets',
           children: [
             {
               title: '活动管理',
-              path: '/activity',
+              path: 'home/activity',
               id: 1.1
             },
             {
               title: '栏目管理',
-              path: '/column',
+              path: 'home/column',
               id: 1.2
             },
             {
               title: '视频管理',
-              path: '/video',
+              path: 'home/video',
               id: 1.3
             },
             {
               title: '文章管理',
-              path: '/news',
+              path: 'home/news',
               id: 1.4
             },
             {
               title: '动态管理',
-              path: '/dynamic',
+              path: 'home/dynamic',
               id: 1.5
             },
             {
               title: '资料下载',
-              path: '/upload',
+              path: 'home/upload',
               id: 1.6
             }
           ]
         },
         {
           title: '代理系统',
-          path: '/agentList',
+          path: '2',
           id: 2,
           class: 'el-icon-document',
           children: [
             {
               title: '代理列表',
-              path: '/agentList',
+              path: 'home/agentList',
               id: 2.1
             },
             {
               title: '代理设置',
-              path: '/agentSetting',
+              path: 'home/agentSetting',
               id: 2.2
             },
             {
               title: '分钱设置',
-              path: '/percent',
+              path: 'home/percent',
               id: 2.3
             },
             {
               title: '推广页面设置',
-              path: '/spread',
+              path: 'home/spread',
               id: 2.4
             }
           ]
         },
         {
           title: '营销系统',
-          path: '/coupon',
+          path: 'home/coupon',
           id: 3,
           class: 'el-icon-news',
           children: [
             {
               title: '优惠券',
-              path: '/coupon',
+              path: 'home/coupon',
               id: 3.1
             },
             {
               title: '订阅推送',
-              path: '/subscribe',
+              path: 'home/subscribe',
               id: 3.2
             },
             {
               title: '机构海报',
-              path: '/mechanism',
+              path: 'home/mechanism',
               id: 3.3
             },
             {
               title: '栏目广告位',
-              path: '/ads',
+              path: 'home/ads',
               id: 3.4
             },
             {
               title: '合伙人海报',
-              path: '/partner',
+              path: 'home/partner',
               id: 3.5
             },
             {
               title: '活动/栏目海报',
-              path: '/al-poster',
+              path: 'home/al-poster',
               id: 3.6
             },
             {
               title: '短信群发',
-              path: '/short-message',
+              path: 'home/short-message',
               id: 3.7
             }
           ]
         },
         {
           title: '数据管理',
-          path: '4',
+          path: 'home/order',
           id: 4,
           class: 'el-icon-date',
           children: [
             {
               title: '订单管理',
-              path: '/activity',
+              path: 'home/order',
               id: 1
             },
             {
               title: '用户关系管理',
-              path: '/column',
+              path: 'home/user',
               id: 2
             }
           ]
@@ -192,27 +192,27 @@ export default {
           children: [
             {
               title: '机构装修',
-              path: '/activity',
+              path: 'home/renovation',
               id: 3.1
             },
             {
               title: '客户端菜单',
-              path: '/column',
+              path: 'home/client',
               id: 3.2
             },
             {
               title: '公众号设置',
-              path: '/video',
+              path: 'home/wx-config',
               id: 3.3
             },
             {
               title: '代理指南',
-              path: '/ads',
+              path: 'home/guide',
               id: 3.4
             },
             {
               title: '学生手册',
-              path: '/ads',
+              path: 'home/student',
               id: 3.5
             }
           ]
