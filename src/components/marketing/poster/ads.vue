@@ -83,6 +83,9 @@ export default {}
 .txt {
   font-size: 14px;
 }
+.vip .txt span:last-child {
+  color: #aaa
+}
 .grid-view {
   padding-left: 20px;
 }
