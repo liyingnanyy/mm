@@ -1,10 +1,14 @@
 <template>
-  <el-menu :router="true" :unique-opened="true" class="el-menu-vertical-demo">
-    <el-submenu :index="item1.path" v-for="item1 in sideList" :key="item1.id">
+  <el-menu :router="true" :default-active="$route.path" :unique-opened="true" class="el-menu-vertical-demo" :default-openeds="[1]">
+    <el-submenu :index="item1.path" v-for="( item1, index ) in sideList" :key="item1.id" @click="saveIndex(index)">
       <template slot="title">
-        <i :class="item1.class"></i><span>{{item1.title}}</span>
+        <i :class="item1.class"></i><span>{{item1.title+ index}}</span>
       </template>
-        <el-menu-item :index="'/'+item2.path" @click="saveIndex('/'+item2.path)" v-for="item2 in item1.children" :key="item2.id">{{item2.title}}</el-menu-item>
+       <el-menu-item-group>
+          <el-menu-item :index="item2.path" @click="saveIndex(index + '-' + index2)" v-for="(item2, index2) in item1.children" :key="item2.id" :route="{
+            path: item2.path
+          }">{{item2.title}}</el-menu-item>
+       </el-menu-item-group>
         <!-- <el-menu-item index="/column">栏目管理</el-menu-item>
         <el-menu-item index="/video">视频管理</el-menu-item>
         <el-menu-item index="/news">文章管理</el-menu-item>
@@ -67,32 +71,32 @@ export default {
           children: [
             {
               title: '活动管理',
-              path: 'home/activity',
+              path: '/home/activity',
               id: 1.1
             },
             {
               title: '栏目管理',
-              path: 'home/column',
+              path: '/home/column',
               id: 1.2
             },
             {
               title: '视频管理',
-              path: 'home/video',
+              path: '/home/video',
               id: 1.3
             },
             {
               title: '文章管理',
-              path: 'home/news',
+              path: '/home/news',
               id: 1.4
             },
             {
               title: '动态管理',
-              path: 'home/dynamic',
+              path: '/home/dynamic',
               id: 1.5
             },
             {
               title: '资料下载',
-              path: 'home/upload',
+              path: '/home/upload',
               id: 1.6
             }
           ]
@@ -105,83 +109,83 @@ export default {
           children: [
             {
               title: '代理列表',
-              path: 'home/agentList',
+              path: '/home/agentList',
               id: 2.1
             },
             {
               title: '代理设置',
-              path: 'home/agentSetting',
+              path: '/home/agentSetting',
               id: 2.2
             },
             {
               title: '分钱设置',
-              path: 'home/percent',
+              path: '/home/percent',
               id: 2.3
             },
             {
               title: '推广页面设置',
-              path: 'home/spread',
+              path: '/home/spread',
               id: 2.4
             }
           ]
         },
         {
           title: '营销系统',
-          path: 'home/coupon',
+          path: '/home/coupon',
           id: 3,
           class: 'el-icon-news',
           children: [
             {
               title: '优惠券',
-              path: 'home/coupon',
+              path: '/home/coupon',
               id: 3.1
             },
             {
               title: '订阅推送',
-              path: 'home/subscribe',
+              path: '/home/subscribe',
               id: 3.2
             },
             {
               title: '机构海报',
-              path: 'home/mechanism',
+              path: '/home/mechanism',
               id: 3.3
             },
             {
               title: '栏目广告位',
-              path: 'home/ads',
+              path: '/home/ads',
               id: 3.4
             },
             {
               title: '合伙人海报',
-              path: 'home/partner',
+              path: '/home/partner',
               id: 3.5
             },
             {
               title: '活动/栏目海报',
-              path: 'home/al-poster',
+              path: '/home/al-poster',
               id: 3.6
             },
             {
               title: '短信群发',
-              path: 'home/short-message',
+              path: '/home/short-message',
               id: 3.7
             }
           ]
         },
         {
           title: '数据管理',
-          path: 'home/order',
+          path: '/home/order',
           id: 4,
           class: 'el-icon-date',
           children: [
             {
               title: '订单管理',
-              path: 'home/order',
+              path: '/home/order',
               id: 1
             },
             {
               title: '用户关系管理',
-              path: 'home/user',
+              path: '/home/user',
               id: 2
             }
           ]
@@ -194,27 +198,27 @@ export default {
           children: [
             {
               title: '机构装修',
-              path: 'home/renovation',
+              path: '/home/renovation',
               id: 3.1
             },
             {
               title: '客户端菜单',
-              path: 'home/client',
+              path: '/home/client',
               id: 3.2
             },
             {
               title: '公众号设置',
-              path: 'home/wx-config',
+              path: '/home/wx-config',
               id: 3.3
             },
             {
               title: '代理指南',
-              path: 'home/guide',
+              path: '/home/guide',
               id: 3.4
             },
             {
               title: '学生手册',
-              path: 'home/student',
+              path: '/home/student',
               id: 3.5
             }
           ]
@@ -229,11 +233,14 @@ export default {
     }
   },
   methods: {
-    saveIndex(index) {
-      this.sliderActiveIndex = sliderActiveIndex;
+    saveIndex (index) {
+      this.sliderActiveIndex = index
       window.sessionStorage.setItem('sliderActiveIndex', index)
       console.log(index)
     }
+  },
+  created () {
+    console.log(this.$route.path)
   }
 }
 </script>
